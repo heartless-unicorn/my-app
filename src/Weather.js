@@ -18,7 +18,10 @@ export default function Weather() {
               Monday,<span className="time"> 10:44</span>
             </h3>
             <div className="param">
-              <span>Wind: 2 km/h |</span>
+              <span>
+                <FontAwesomeIcon icon="fa-regular fa-location-arrow" />
+                Wind: 2 km/h |
+              </span>
               <span>Hum: 30% |</span>
               <span>Rain</span>
             </div>
