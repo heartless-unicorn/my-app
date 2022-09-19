@@ -6,12 +6,14 @@ import { BsWind } from "react-icons/bs";
 import { BiDroplet } from "react-icons/bi";
 import { GoLocation } from "react-icons/go";
 
+import NewDate from "./NewDate";
 import "./Weather.css";
 
 export default function Weather() {
   let [Weather, setWeather] = useState({ ready: false });
   let [Coords, setCoords] = useState({});
   let [city, SearchCity] = useState("");
+  let [date, setDate] = useState(null);
   let iconUrl;
   let url;
   function Change(response) {
@@ -23,6 +25,7 @@ export default function Weather() {
       description: response.data.weather[0].description,
       iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
+    setDate(new Date(response.data.dt * 1000));
   }
 
   if (Weather.ready === false) {
@@ -38,6 +41,7 @@ export default function Weather() {
       function handleUrl(response) {
         Change(response);
       }
+
       axios.get(url).then(handleUrl);
     }
   }
@@ -66,10 +70,7 @@ export default function Weather() {
               {Weather.temp}
               <span className="unit">°C</span>
             </h1>
-            <h4>May 3, 2022</h4>
-            <h3>
-              Monday,<span className="time"> 10:44</span>
-            </h3>
+            <NewDate date={date} />
             <div className="param">
               <span>
                 <BsWind />
