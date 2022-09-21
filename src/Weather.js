@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import Forecast from "./Forecast";
 import Info from "./Info";
+import Temperature from "./Temperature";
 import { BsWind } from "react-icons/bs";
 import { BiDroplet } from "react-icons/bi";
 import { GoLocation } from "react-icons/go";
@@ -68,10 +69,7 @@ export default function Weather() {
         <div className="row">
           <div className="col-8">
             <img src={Weather.iconUrl} alt="Weather icon" />
-            <h1>
-              {Weather.temp}
-              <span className="unit">°C</span>
-            </h1>
+            <Temperature celcius={Weather.temp} />
             <NewDate date={date} />
             <div className="param">
               <span>
