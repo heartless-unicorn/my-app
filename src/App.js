@@ -6,7 +6,10 @@ function App() {
   return (
     <div className="App">
       <Weather />
-      <p>Open-source by Maria Pavlova</p>
+      <p>
+        <a href="https://github.com/heartless-unicorn/my-app">Open-source</a> by
+        Maria Pavlova
+      </p>
     </div>
   );
 }

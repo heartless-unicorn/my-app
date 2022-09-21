@@ -1,0 +1,13 @@
+.sun {
+  background-color: rgba(255, 255, 255, 0.25);
+  margin: 10px;
+  border-radius: 30px;
+  padding: 30px 15px;
+  text-align: center;
+}
+.icon {
+  color: red;
+}
+.Info p {
+  text-align: center;
+}

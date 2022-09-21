@@ -4,7 +4,8 @@
     #9065bc 0%,
     rgba(255, 0, 108, 0.38) 100%
   );
-  padding-top: 15px;
+
+  padding: 30px;
   font-family: "Roboto", sans-serif;
   color: white;
   line-height: 120%;

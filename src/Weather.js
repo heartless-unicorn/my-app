@@ -14,7 +14,6 @@ export default function Weather() {
   let [Coords, setCoords] = useState({});
   let [city, SearchCity] = useState("");
   let [date, setDate] = useState(null);
-  let iconUrl;
   let url;
   function Change(response) {
     setWeather({
@@ -24,6 +23,10 @@ export default function Weather() {
       hum: response.data.main.humidity,
       description: response.data.weather[0].description,
       iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      sunrise: response.data.sys.sunrise,
+      sunset: response.data.sys.sunset,
+      min: response.data.main.temp_min,
+      max: response.data.main.temp_max,
     });
     setDate(new Date(response.data.dt * 1000));
   }
@@ -41,7 +44,6 @@ export default function Weather() {
       function handleUrl(response) {
         Change(response);
       }
-
       axios.get(url).then(handleUrl);
     }
   }
@@ -82,7 +84,9 @@ export default function Weather() {
               </span>
               <span>{Weather.description}</span>
             </div>
-            <Forecast />
+            <div className="row">
+              <Forecast city={Weather.current} />
+            </div>
           </div>
           <div className="col-4 ">
             <div className="search-field">
@@ -97,7 +101,7 @@ export default function Weather() {
                 <input className="search ok" type="submit" value="OK" />
               </form>
             </div>
-            <Info />
+            <Info weather={Weather} />
           </div>
         </div>
       </div>
