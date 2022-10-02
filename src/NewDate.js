@@ -38,7 +38,7 @@ export default function Date(props) {
       hours = `0${hours}`;
     }
     return (
-      <div>
+      <div className="NewDate">
         <h4>
           {months[month]} {number}, {year}
         </h4>

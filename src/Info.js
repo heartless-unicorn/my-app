@@ -25,7 +25,7 @@ export default function Info(props) {
 
   return (
     <div className="Info">
-      <div className="d-flex">
+      <div className="d-flex sun-info">
         <div>
           <p>Sunrise</p>
           <div className="sun">
@@ -47,21 +47,13 @@ export default function Info(props) {
       </div>
       <hr />
       <div className="row">
-        <div className="col-6">
-          <p>Humidity: </p>
-          <p>{props.weather.hum}%</p>
-        </div>
-        <div className="col-6">
-          <p>Wind speed:</p>
-          <p>{props.weather.wind}km/h</p>
-        </div>
-        <div className="col-6">
-          <p>Minimum</p>
-          <p>{Math.round(props.weather.min)}°C</p>
+        <div className="col-6 ">
+          <p>Minimum:</p>
+          <p class="min">{Math.round(props.weather.min)}°C</p>
         </div>
         <div className="col-6">
           <p>Maximum:</p>
-          <p>{Math.round(props.weather.max)}°C</p>
+          <p class="max">{Math.round(props.weather.max)}°C</p>
         </div>
       </div>
     </div>
